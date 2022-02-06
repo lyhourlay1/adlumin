@@ -1,0 +1,271 @@
+  [1m[35m (229.1ms)[0m  [1m[35mCREATE DATABASE "adlumin_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (75.7ms)[0m  [1m[35mCREATE DATABASE "adlumin_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateEventLogs (20220206060231)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateEventLogs (20220206060231)
+  [1m[35m (5.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (13.0ms)[0m  [1m[35mCREATE TABLE "event_logs" ("id" bigserial primary key, "log_id" integer NOT NULL, "source_IP" character varying NOT NULL, "destination_IP" character varying NOT NULL, "source_valid" boolean NOT NULL, "source_private" boolean NOT NULL, "destination_valid" boolean NOT NULL, "destination_private" boolean NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20220206060231_create_event_logs.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_event_logs_on_log_id" ON "event_logs"  ("log_id")[0m
+  ↳ db/migrate/20220206060231_create_event_logs.rb:13
+  [1m[36mActiveRecord::SchemaMigration Create (3.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220206060231"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (4.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-02-06 06:09:41.807187"], ["updated_at", "2022-02-06 06:09:41.807187"]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mEventLog Load (1.6ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddColumnEventLog (20220206064547)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.6ms)[0m  [1m[35mALTER TABLE "event_logs" ADD "log" character varying NOT NULL[0m
+  ↳ db/migrate/20220206064547_add_column_event_log.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220206064547"]]
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (6.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:47:24 -0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+  [1m[36mEventLog Load (6.9ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to RemoveLog (20220206065109)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.7ms)[0m  [1m[35mALTER TABLE "event_logs" DROP COLUMN "log"[0m
+  ↳ db/migrate/20220206065109_remove_log.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "event_logs" ADD "log" text NOT NULL[0m
+  ↳ db/migrate/20220206065109_remove_log.rb:4
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220206065109"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(2371675525784032230)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:52:11 -0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:52:12 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 0ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:52:15 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:54:38 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:5
+  [1m[36mEventLog Create (8.4ms)[0m  [1m[32mINSERT INTO "event_logs" ("created_at", "updated_at", "log") VALUES ($1, $2, $3) RETURNING "id"[0m  [["created_at", "2022-02-06 06:54:38.564765"], ["updated_at", "2022-02-06 06:54:38.564765"], ["log", "<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="]]
+  ↳ app/controllers/event_logs_controller.rb:5
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/event_logs_controller.rb:5
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 16.8ms)
+
+
+
+ActiveRecord::NotNullViolation - PG::NotNullViolation: ERROR:  null value in column "log_id" of relation "event_logs" violates not-null constraint
+DETAIL:  Failing row contains (1, null, null, null, null, null, null, null, 2022-02-06 06:54:38.564765, 2022-02-06 06:54:38.564765, <37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manu...).
+: INSERT INTO "event_logs" ("created_at", "updated_at", "log") VALUES ($1, $2, $3) RETURNING "id":
+  app/controllers/event_logs_controller.rb:5:in `create'
+
+  [1m[36mEventLog Load (3.5ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-05 22:59:07 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-06 00:41:36 -0800
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+Completed 500 Internal Server Error in 144ms (ActiveRecord: 15.6ms)
+
+
+
+NameError - undefined local variable or method `source_IP' for #<EventLogsController:0x00007fc39c6ee670>:
+  app/controllers/event_logs_controller.rb:27:in `create'
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-06 00:42:30 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[36mEventLog Create (13.9ms)[0m  [1m[32mINSERT INTO "event_logs" ("log_id", "source_IP", "destination_IP", "source_valid", "source_private", "destination_valid", "destination_private", "created_at", "updated_at", "log") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["log_id", 37], ["source_IP", "50.227.44.198"], ["destination_IP", "52.10.98.6"], ["source_valid", true], ["source_private", false], ["destination_valid", true], ["destination_private", false], ["created_at", "2022-02-06 08:42:30.712014"], ["updated_at", "2022-02-06 08:42:30.712014"], ["log", "<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="]]
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 30.3ms)
+
+
+
+ActionView::MissingTemplate - Missing template event_logs/show, application/show with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/lyhourlay/Desktop/adlumin/app/views":
+  app/controllers/event_logs_controller.rb:57:in `create'
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-06 00:44:38 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[36mEventLog Create (0.5ms)[0m  [1m[32mINSERT INTO "event_logs" ("log_id", "source_IP", "destination_IP", "source_valid", "source_private", "destination_valid", "destination_private", "created_at", "updated_at", "log") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["log_id", 37], ["source_IP", "50.227.44.198"], ["destination_IP", "52.10.98.6"], ["source_valid", true], ["source_private", false], ["destination_valid", true], ["destination_private", false], ["created_at", "2022-02-06 08:44:38.945874"], ["updated_at", "2022-02-06 08:44:38.945874"], ["log", "<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="]]
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+Completed 500 Internal Server Error in 70ms (ActiveRecord: 7.3ms)
+
+
+
+ActionView::MissingTemplate - Missing template event_logs/show, application/show with {:locale=>[:en], :formats=>[:html, :text, :js, :css, :ics, :csv, :vcf, :vtt, :png, :jpeg, :gif, :bmp, :tiff, :svg, :mpeg, :mp3, :ogg, :m4a, :webm, :mp4, :otf, :ttf, :woff, :woff2, :xml, :rss, :atom, :yaml, :multipart_form, :url_encoded_form, :json, :pdf, :zip, :gzip], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/lyhourlay/Desktop/adlumin/app/views":
+  app/controllers/event_logs_controller.rb:57:in `create'
+
+Started POST "/event_logs?event_log[log]=%3C37%3ECEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin%20RepDV%20Manual%20Block|1|app=IP%20cnt=3%20dst=52.10.98.6%20dpt=443%20act=Block%20cn1=0%20cn1Label=VLAN%20ID%20cn2=33554431%20cn2Label=Taxonomy%20cn3=0%20cn3Label=Packet%20Trace%20cs1=WCU-External-Outbound%20cs1Label=Profile%20Name%20cs2=6e664408-b90a-48e2-9a2d-c01cb9258381%20cs2Label=Policy%20UUID%20cs3=00000001-0001-0001-0001-000000007610%20cs3Label=Signature%20UUID%20cs4=1-1B%201-1A%20cs4Label=ZoneNames%20cs5=TipSMS%20cs5Label=SMS%20Name%20dvchost=PAS-TIP2600NX-01%20cs6=50.227.44.198%20cs6Label=Filter%20Message%20Parms%20src=50.227.44.198%20spt=10162%20externalId=19278229%20rt=1539348361056%20cat=Reputation%20proto=IP%20deviceInboundInterface=3%20c6a2=%20c6a2Label=Source%20IPv6%20c6a3=%20c6a3Label=Destination%20IPv6%20request=%20requestMethod=%20dhost=%20sourceTranslatedAddress=50.227.44.198%20c6a1=%20c6a1Label=Client%20IPv6%20suser=%20sntdom=%20duser=%20dntdom=" for ::1 at 2022-02-06 00:46:05 -0800
+Processing by EventLogsController#create as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[36mEventLog Create (1.4ms)[0m  [1m[32mINSERT INTO "event_logs" ("log_id", "source_IP", "destination_IP", "source_valid", "source_private", "destination_valid", "destination_private", "created_at", "updated_at", "log") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["log_id", 37], ["source_IP", "50.227.44.198"], ["destination_IP", "52.10.98.6"], ["source_valid", true], ["source_private", false], ["destination_valid", true], ["destination_private", false], ["created_at", "2022-02-06 08:46:05.403150"], ["updated_at", "2022-02-06 08:46:05.403150"], ["log", "<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="]]
+  ↳ app/controllers/event_logs_controller.rb:56
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_logs_controller.rb:56
+  Rendering event_logs/show.json.jbuilder
+  Rendered event_logs/show.json.jbuilder (0.6ms)
+Completed 200 OK in 30ms (Views: 25.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/event_logs" for ::1 at 2022-02-06 00:48:09 -0800
+Processing by EventLogsController#index as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+No template found for EventLogsController#index, rendering head :no_content
+Completed 204 No Content in 116ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/event_logs" for ::1 at 2022-02-06 00:50:35 -0800
+Processing by EventLogsController#index as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}}
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (2.0ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (22.6ms)
+Completed 200 OK in 51ms (Views: 40.6ms | ActiveRecord: 7.4ms)
+
+
+Started DELETE "/event_logs/2" for ::1 at 2022-02-06 00:57:59 -0800
+Processing by EventLogsController#destroy as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}, "id"=>"2"}
+  [1m[36mEventLog Load (0.6ms)[0m  [1m[34mSELECT  "event_logs".* FROM "event_logs" WHERE "event_logs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/event_logs_controller.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:65
+  [1m[36mEventLog Destroy (1.8ms)[0m  [1m[31mDELETE FROM "event_logs" WHERE "event_logs"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/event_logs_controller.rb:65
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_logs_controller.rb:65
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (0.3ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (1.5ms)
+Completed 200 OK in 90ms (Views: 23.3ms | ActiveRecord: 36.3ms)
+
+
+Started DELETE "/event_logs/3" for ::1 at 2022-02-06 00:59:28 -0800
+Processing by EventLogsController#destroy as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}, "id"=>"3"}
+  [1m[36mEventLog Load (0.6ms)[0m  [1m[34mSELECT  "event_logs".* FROM "event_logs" WHERE "event_logs"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/event_logs_controller.rb:64
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/event_logs_controller.rb:65
+  [1m[36mEventLog Destroy (0.3ms)[0m  [1m[31mDELETE FROM "event_logs" WHERE "event_logs"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/event_logs_controller.rb:65
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/event_logs_controller.rb:65
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (0.3ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (1.3ms)
+Completed 200 OK in 30ms (Views: 24.7ms | ActiveRecord: 2.1ms)
+
+
