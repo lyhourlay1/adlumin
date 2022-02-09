@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   resources :event_logs, only:[:create, :index, :show, :destroy] do
     resources :comments, only:[:create, :index, :update, :destroy]
   end
+  
+  root to: "static_pages#root"
+
 end

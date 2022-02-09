@@ -521,3 +521,73 @@ Processing by CommentsController#index as */*
 Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/event_logs/4/comments" for ::1 at 2022-02-06 21:41:21 -0800
+
+ActionController::RoutingError - uninitialized constant CommentsController:
+
+Started GET "/event_logs/4/comments" for ::1 at 2022-02-06 21:41:38 -0800
+Processing by CommentsController#index as */*
+  Parameters: {"event_log"=>{"log"=>"<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|Adlumin RepDV Manual Block|1|app=IP cnt=3 dst=52.10.98.6 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=33554431 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Outbound cs1Label=Profile Name cs2=6e664408-b90a-48e2-9a2d-c01cb9258381 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000007610 cs3Label=Signature UUID cs4=1-1B 1-1A cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=PAS-TIP2600NX-01 cs6=50.227.44.198 cs6Label=Filter Message Parms src=50.227.44.198 spt=10162 externalId=19278229 rt=1539348361056 cat=Reputation proto=IP deviceInboundInterface=3 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost= sourceTranslatedAddress=50.227.44.198 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom="}, "event_log_id"=>"4"}
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (3.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."event_log_id" = $1[0m  [["event_log_id", 4]]
+  ↳ app/views/comments/index.json.jbuilder:1
+  Rendered comments/index.json.jbuilder (55.6ms)
+Completed 200 OK in 134ms (Views: 52.7ms | ActiveRecord: 54.5ms)
+
+
+Started GET "/" for ::1 at 2022-02-06 22:47:35 -0800
+  [1m[35m (8.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+LoadError - Unable to autoload constant StaticPagesController, expected /Users/lyhourlay/Desktop/adlumin/app/controllers/static_pages_controller.rb to define it:
+
+Started POST "/__better_errors/b71bcbc75ebd6f37/variables" for ::1 at 2022-02-06 22:47:36 -0800
+Started GET "/" for ::1 at 2022-02-06 22:48:41 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (0.8ms)
+Completed 200 OK in 1100ms (Views: 1094.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-07 09:31:15 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (17.1ms)
+Completed 200 OK in 1050ms (Views: 1008.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-07 11:56:55 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (23.6ms)
+Completed 200 OK in 2043ms (Views: 1948.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-07 12:48:44 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (46.4ms)
+Completed 200 OK in 1706ms (Views: 1660.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-07 17:10:11 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (89.8ms)
+Completed 200 OK in 2274ms (Views: 2004.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-08 12:16:14 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (28.8ms)
+Completed 200 OK in 5122ms (Views: 4548.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-08 16:55:52 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (43.5ms)
+Completed 200 OK in 3307ms (Views: 3177.4ms | ActiveRecord: 0.0ms)
+
+
