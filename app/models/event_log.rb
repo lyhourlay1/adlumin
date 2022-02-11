@@ -3,8 +3,8 @@ class EventLog < ApplicationRecord
     # :destination_private, presence: true
     validates :log, presence:true
 
-    has_many :comments,
-        primary_key: :id,
-        foreign_key: :event_log_id,
-        class_name: :Comment
+    # has_many :comments,
+    #     primary_key: :id,
+    #     foreign_key: :event_log_id,
+    #     class_name: :Comment
 end

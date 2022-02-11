@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
+        @comment.event_log_id = params[:event_log_id]
         if @comment.save
             render :show
         else
@@ -12,7 +13,7 @@ class CommentsController < ApplicationController
     def destroy
         @comment = Comment.find(params[:id])
         if  @comment.destroy
-            @comments = Comment.all
+            @comments = Comment.where(event_log_id: @comment.event_log_id)
             render :index
         else
              render json: @comment.errors.full_messages, status: 401

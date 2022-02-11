@@ -9,9 +9,9 @@ const receiveEvents = events => ({
     events
 });
 
-const receiveEvent = event => ({
+const receiveEvent = event_log => ({
     type: RECEIVE_EVENT,
-    event
+    event_log
 });
 
 const removeEvent = eventId => ({
@@ -26,15 +26,15 @@ export const fetchEvents = () => dispatch => (
 
 export const fetchEvent = eventId => dispatch => (
     EventApiUtil.fetchEvent(eventId)
-        .then(event  => dispatch(receiveOrder(event)))
+        .then(event_log  => dispatch(receiveEvent(event_log)))
 );
 
-export const createEvent = event => dispatch => (
-    EventApiUtil.createEvent(event)
-        .then(event => dispatch(receiveEvent(event)))
+export const createEvent = event_log => dispatch => (
+    EventApiUtil.createEvent(event_log)
+        .then(event_log => dispatch(receiveEvent(event_log)))
 );
 
 export const deleteEvent = eventId => dispatch => (
-    EventApiUtil.deleteOrder(eventId)
-        .then(() => dispatch(removeOrder(eventId)))
+    EventApiUtil.deleteEvent(eventId)
+        .then(() => dispatch(removeEvent(eventId)))
 );

@@ -18,6 +18,7 @@ class EventLogsController < ApplicationController
     end
     def create
         @eventLog = EventLog.new(event_log_params)
+        
         logString = @eventLog.log
         @eventLog.log_id = logString.split(">")[0][1..-1].to_i
         @eventLog.source_IP = logString.split("src=")[1].split(" ")[0]
@@ -76,7 +77,7 @@ class EventLogsController < ApplicationController
     end
 
     def show
-        @eventLog = EventLog.find_by(log_id: params[:log_id])
+        @eventLog = EventLog.find_by(id: params[:id])
     end
 
     private

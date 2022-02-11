@@ -5,10 +5,11 @@ const eventReducer = (state = {}, action) => {
     Object.freeze(state)
 
     let newState = Object.assign({}, state)
-
+        // console.log('newstate', action.events)
+        // console.log('state',state)
     switch (action.type) {
         case RECEIVE_EVENT:
-            newState[action.event.id] = action.event
+            newState[action.event_log.id] = action.event_log
             return newState
         case RECEIVE_EVENTS:
             return action.events
@@ -16,6 +17,8 @@ const eventReducer = (state = {}, action) => {
             delete newState[action.eventId]
             return newState
         default:
+            // console.log('newstate',newState)
+            // console.log('state',state)
             return state;
     }
 }

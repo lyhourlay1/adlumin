@@ -1,29 +1,29 @@
 export const fetchEvents = () => (
     $.ajax({
-        url: `api/event_logs/`,
+        url: `event_logs/`,
         method: 'get'
     })
 );
 
 export const fetchEvent = eventId => (
     $.ajax({
-        url: `/api/event_logs/${eventId}/`,
+        url: `event_logs/${eventId}/`,
         method: 'get'
     })
 );
 
-export const createEvent = event => (
+export const createEvent = event_log => (
     $.ajax({
-        url: `api/event_logs/`,
+        url: `event_logs/`,
         method: 'POST',
-        data: { event }
+        data: { event_log }
     })
 );
 
 
 export const deleteEvent = eventId => (
     $.ajax({
-        url: `/api/event_logs/${eventId}/`,
+        url: `event_logs/${eventId}/`,
         method: 'DELETE'
     })
 )
