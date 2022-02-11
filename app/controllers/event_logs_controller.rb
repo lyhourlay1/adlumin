@@ -1,18 +1,16 @@
 class EventLogsController < ApplicationController
-
+    # helper method to check if the ip address is private and or valid
     def isValid(numIp)
-        hash = {private: false, public: false}
+        hash = {private: false, valid: false}
         if (numIp >= 10000000000 && numIp <= 10255255255)|| 
             (numIp >= 172016000000 && numIp <= 172031255255) ||
             (numIp >= 192168000000 && numIp <= 192168255255)
             hash[:private] = true
-        elsif (numIp >= 1000000000 && numIp <= 9255255255)|| 
-            (numIp >= 11000000000 && numIp <= 126255255255)|| 
-            (numIp >= 128000000000 && numIp <= 172015255255 )|| 
-            (numIp >= 172032000000 && numIp <= 191255255255 )|| 
-            (numIp >= 192000000000 && numIp <= 192167255255 )|| 
-            (numIp >= 192169000000 && numIp <= 223255255255 )
-            hash[:public] = true
+        end
+        if (numIp >= 1000000001 && numIp <= 126254254254) ||
+            (numIp >= 128100000100 && numIp <= 191254254254) ||
+            (numIp >= 192000100100 && numIp <= 223254254254) 
+            hash[:valid] = true
         end
         return hash
     end
@@ -28,6 +26,8 @@ class EventLogsController < ApplicationController
         arrSrc = @eventLog.source_IP.split(".")
         arrDst = @eventLog.destination_IP.split(".")
         i=1
+
+        #iterate to satify octet rule which can be coverted to number to compare
         while(i< arrSrc.length)
             numStr = arrSrc[i]
             numDst = arrDst[i]
@@ -47,12 +47,12 @@ class EventLogsController < ApplicationController
         hash = isValid(numSrc)
 
         @eventLog.source_private = hash[:private]
-        @eventLog.source_valid = hash[:private] || hash[:public]
+        @eventLog.source_valid = hash[:valid]
 
         hash = isValid(numDst)
 
         @eventLog.destination_private = hash[:private]
-        @eventLog.destination_valid = hash[:private] || hash[:public]
+        @eventLog.destination_valid = hash[:valid]
         
         if(@eventLog.save)
             render :show
