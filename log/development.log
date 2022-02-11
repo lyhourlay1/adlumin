@@ -11181,3 +11181,82 @@ Processing by CommentsController#index as */*
 Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/" for ::1 at 2022-02-11 00:44:28 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (7.5ms)
+Completed 200 OK in 312ms (Views: 296.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/event_logs/" for ::1 at 2022-02-11 00:44:29 -0800
+Processing by EventLogsController#index as */*
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (14.4ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (31.8ms)
+Completed 200 OK in 57ms (Views: 40.1ms | ActiveRecord: 14.4ms)
+
+
+Started GET "/" for ::1 at 2022-02-11 01:26:07 -0800
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html within layouts/application
+  Rendered static_pages/root.html within layouts/application (1.4ms)
+Completed 200 OK in 237ms (Views: 221.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/event_logs/" for ::1 at 2022-02-11 01:26:08 -0800
+Processing by EventLogsController#index as */*
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (20.0ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (36.8ms)
+Completed 200 OK in 63ms (Views: 40.9ms | ActiveRecord: 20.0ms)
+
+
+Started GET "/event_logs/11/" for ::1 at 2022-02-11 01:26:53 -0800
+Processing by EventLogsController#show as */*
+  Parameters: {"id"=>"11"}
+Started GET "/event_logs/11/comments" for ::1 at 2022-02-11 01:26:53 -0800
+  [1m[36mEventLog Load (31.1ms)[0m  [1m[34mSELECT  "event_logs".* FROM "event_logs" WHERE "event_logs"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/event_logs_controller.rb:80
+  Rendering event_logs/show.json.jbuilder
+  Rendered event_logs/show.json.jbuilder (1.2ms)
+Completed 200 OK in 152ms (Views: 32.5ms | ActiveRecord: 31.7ms)
+
+
+Processing by CommentsController#index as */*
+  Parameters: {"event_log_id"=>"11"}
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (4.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."event_log_id" = $1[0m  [["event_log_id", 11]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (12.5ms)
+Completed 200 OK in 42ms (Views: 34.5ms | ActiveRecord: 4.7ms)
+
+
+Started DELETE "/comments/45" for ::1 at 2022-02-11 01:26:55 -0800
+Processing by CommentsController#destroy as */*
+  Parameters: {"id"=>"45"}
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 45], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:14
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[36mComment Destroy (8.5ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 45]]
+  ↳ app/controllers/comments_controller.rb:15
+  [1m[35m (10.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/comments_controller.rb:15
+  Rendering comments/index.json.jbuilder
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."event_log_id" = $1[0m  [["event_log_id", 11]]
+  ↳ app/views/comments/index.json.jbuilder:2
+  Rendered comments/index.json.jbuilder (4.5ms)
+Completed 200 OK in 70ms (Views: 28.0ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/event_logs/" for ::1 at 2022-02-11 01:26:57 -0800
+Processing by EventLogsController#index as */*
+  Rendering event_logs/index.json.jbuilder
+  [1m[36mEventLog Load (5.6ms)[0m  [1m[34mSELECT "event_logs".* FROM "event_logs"[0m
+  ↳ app/views/event_logs/index.json.jbuilder:1
+  Rendered event_logs/index.json.jbuilder (14.4ms)
+Completed 200 OK in 44ms (Views: 37.7ms | ActiveRecord: 5.6ms)
+
+
